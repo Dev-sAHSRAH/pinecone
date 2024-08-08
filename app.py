@@ -33,7 +33,7 @@ def main():
 
             # create documents list
             docs = create_doc(pdfs,st.session_state['unique_id'])
-            st.write(docs)
+            #st.write(docs)
             
 
             # count of resumes
@@ -44,11 +44,11 @@ def main():
 
             # Push data to Pinecone
             push_to_vector_store("test",embeddings,docs)
-
+            
             # Fetch relevant docs from Pinecone
             relavant_docs = similar_docs(job_desc,doc_count,"test",embeddings,st.session_state['unique_id'])
 
-            st.write(relavant_docs)
+            st.write(relavant_docs) 
 
 
         st.success("Hope I saved your time 🚀")    
